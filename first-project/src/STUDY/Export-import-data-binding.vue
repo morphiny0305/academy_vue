@@ -19,10 +19,39 @@
       <h4 :style="스타일" id="box1">{{product[i]}}</h4>
       <p :style="스타일">5000 원</p>
     </div> -->
-    <div v-for="(a, i) in 상품" :key="i">
-      <img :src="a.image" class="product-img" alt="컵케익">
-      <h4 :style="스타일" id="box1">{{a.title}}</h4>
-      <p :style="스타일">{{a.price}} 원</p>
+    <div>
+      <img :src="상품[0].image" class="product-img" alt="선글라스">
+      <h4 :style="스타일" id="box1">{{상품[0].title}}</h4>
+      <p :style="스타일">{{상품[0].price}} 원</p>
+      <!-- <button class="btn btn1" @click="clickMe[0]++">ㅇ♡ㅇ</button>
+      <span>좋아요 : {{ clickMe[0] }}</span> -->
+    </div>
+    <div>
+      <img :src="상품[1].image" class="product-img" alt="머메이드">
+      <h4 :style="스타일" id="box1">{{상품[1].title}}</h4>
+      <p :style="스타일">{{상품[1].price}} 원</p>
+      <!-- <button class="btn btn1" @click="clickMe[1]++">ㅇ♡ㅇ</button>
+      <span>좋아요 : {{ clickMe[1] }}</span> -->
+    </div>
+    <div>
+      <img :src="상품[2].image" class="product-img" alt="고양이">
+      <h4 :style="스타일" id="box1">{{상품[2].title}}</h4>
+      <p :style="스타일">{{상품[2].price}} 원</p>
+      <!-- <button class="btn btn1" @click="clickMe[2]++">ㅇ♡ㅇ</button>
+      <span>좋아요 : {{ clickMe[2] }}</span> -->
+    </div>
+    <div>
+      <img :src="상품[3].image" class="product-img" alt="나이트 댄서">
+      <h4 :style="스타일" id="box1">{{상품[3].title}}</h4>
+      <p :style="스타일">{{상품[3].price}} 원</p>
+      <!-- <button class="btn btn1" @click="clickMe[3]++">ㅇ♡ㅇ</button>
+      <span>좋아요 : {{ clickMe[3] }}</span> -->
+    </div>
+
+    <div>
+      <img :src="상품[4].image" class="product-img" alt="컵케익">
+      <h4 :style="스타일" id="box1">{{상품[4].title}}</h4>
+      <p :style="스타일">{{상품[4].price}} 원</p>
       <!-- <button class="btn btn1" @click="clickMe[4]++">ㅇ♡ㅇ</button>
       <span>좋아요 : {{ clickMe[4] }}</span> -->
     </div>

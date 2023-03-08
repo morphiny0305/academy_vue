@@ -14,11 +14,7 @@
       <a href="#">경복궁 관람</a>
       <a href="#">기념품</a> -->
     </nav>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <div v-for="(a, i) in product" :key="i">
-      <h4 :style="스타일" id="box1">{{product[i]}}</h4>
-      <p :style="스타일">5000 원</p>
-    </div> -->
+    
     <div v-for="(a, i) in 상품" :key="i">
       <img :src="a.image" class="product-img" alt="컵케익">
       <h4 :style="스타일" id="box1">{{a.title}}</h4>
@@ -32,7 +28,7 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import product from './assets/product.js'
+import product from '.../assets/product.js'
 product
 export default {
   name: 'App',
