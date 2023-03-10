@@ -15,18 +15,42 @@
 
       <Discount>
       </Discount>
-      
-<Things v-for="(a, i) in 상품" :key="i" :상품="상품[i]" @openModal="모달창열림=true"></Things>
+      <!-- <Discount :데이터이름="[1, 2, 3]"/>
+      <Discount :데이터이름="{age: 100}"/>
+      <Discount :데이터이름="100"/>
+      <Discount :데이터이름="String"/>-->
 
+<!-- 오브젝트 : {name: 'kim', age: 20}
+<Discount :데이터이름="오브젝트.name" :데이터이름2="오브젝트.age"/> -->
+
+<!-- <Things :상품="상품[0]"></Things>
+<Things :상품="상품[1]"></Things>
+<Things :상품="상품[2]"></Things>
+<Things :상품="상품[3]"></Things>
+<Things :상품="상품[4]"></Things> -->
+<Things v-for="(a, i) in 상품" :key="i" :상품="상품[i]"></Things>
+
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <!-- <div v-for="(a, i) in product" :key="i">
+      <h4 :style="스타일" id="box1">{{product[i]}}</h4>
+      <p :style="스타일">5000 원</p>
+    </div> -->
+    <!-- <div v-for="(a, i) in 상품" :key="i">
+      <img :src="a.image" class="product-img" alt="컵케익">
+      <h4 @click="모달창열림 = true; 제목누른거 = i" :style="스타일" id="box1">{{a.title}}</h4>
+      <p :style="스타일">{{a.price}} 원</p>
+      <button class="btn btn1" @click="clickMe[4]++">ㅇ♡ㅇ</button>
+      <span>좋아요 : {{ clickMe[4] }}</span>
+    </div> -->
   </section>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import product from './assets/product.js'
-import Discount from './components/discount.vue'
-import Details from './components/details.vue'
-import Things from './components/Things.vue'
+import product from '.../assets/product.js'
+import Discount from '.../components/discount.vue'
+import Details from '.../components/details.vue'
+import Things from '.../components/Things.vue'
 export default {
   name: 'App',
   data(){
