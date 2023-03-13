@@ -1,13 +1,16 @@
 <template>
   <!-- 할인 배너 만들기 -->
   <div class="saleBanner">
-    <h4>지금사면 무료증정</h4>
+    <h3>지금사면 {{ amount }} % 할인</h3>
   </div>
 </template>
 
 <script>
 export default{
   name: 'discountSale',
+  props: {
+    amount: Number
+  },
 }
 </script>
 
