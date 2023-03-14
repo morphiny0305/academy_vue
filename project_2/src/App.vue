@@ -9,10 +9,11 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <!-- 라우터 링크 -->
+            <a class="nav-link active" aria-current="page" href="#"><router-link to="/homePage">Home</router-link> </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#"><router-link to="/list">list-page</router-link></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
@@ -31,13 +32,14 @@
       </div>
     </div>
     </nav>
-    <listTxt :블로그글="blog"></listTxt>
+    <List :블로그글="블로그글"></List>
+    <RouterView :블로그글="블로그글"></RouterView>
   </section>
 </template>
 
 <script>
 import blog from './assets/blog.js'
-import listTxt from './components/list.vue'
+import List from './components/list.vue'
 
 export default {
   name: 'App',
@@ -47,17 +49,11 @@ export default {
     }
   },
   components: {
-    listTxt
+    List
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+
 </style>

@@ -1,18 +1,18 @@
 <template>
   <section>
     <div class="text">
-      <!-- <h5>{{블로그글[0].title}}</h5> -->
-      <!-- <p>{{ 블로그글[0].date }}</p> -->
+      <h5>{{블로그글[0].title}}</h5>
+      <p>{{ 블로그글[0].date }}</p>
     </div>
 
     <div class="text">
-      <h5>블로그 글 제목</h5>
-      <p>블로그 글 날짜</p>
+      <h5>{{블로그글[1].title}}</h5>
+      <p>{{블로그글[1].date}}</p>
     </div>
     
     <div class="text">
-      <h5>블로그 글 제목</h5>
-      <p>블로그 글 날짜</p>
+      <h5>{{블로그글[2].title}}</h5>
+      <p>{{블로그글[2].date}}</p>
     </div>
   </section>
 </template>
@@ -28,5 +28,5 @@ export default {
 </script>
 
 <style>
-div.text{width: 300px; height: 100px; background: tan; margin: auto;}
+div.text{width: 300px; height: 100px; margin: auto;}
 </style>
