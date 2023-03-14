@@ -1,5 +1,5 @@
 <template>
-  <div><h1>tlqkf 홈페이지</h1></div>
+  <div>commentPages</div>
 </template>
 
 <script>

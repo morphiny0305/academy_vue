@@ -1,7 +1,8 @@
 <template>
   <section>
     <div class="text">
-      <h5>{{블로그글[0].title}}</h5>
+      <!-- 페이지 이동 경로 연결 -->
+      <h5 @click="$router.push('./detail/0')">{{블로그글[0].title}}</h5>
       <p>{{ 블로그글[0].date }}</p>
     </div>
 
@@ -28,5 +29,5 @@ export default {
 </script>
 
 <style>
-div.text{width: 300px; height: 100px; margin: auto;}
+/* div.text{width: 300px; height: 100px; margin: auto;} */
 </style>

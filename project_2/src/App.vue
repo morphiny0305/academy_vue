@@ -16,7 +16,7 @@
             <a class="nav-link" href="#"><router-link to="/list">list-page</router-link></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="#">detail-page</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,14 +32,14 @@
       </div>
     </div>
     </nav>
-    <List :블로그글="블로그글"></List>
+    <!-- <List :블로그글="블로그글"></List> -->
     <RouterView :블로그글="블로그글"></RouterView>
   </section>
 </template>
 
 <script>
 import blog from './assets/blog.js'
-import List from './components/list.vue'
+// import List from './components/list.vue'
 
 export default {
   name: 'App',
@@ -49,7 +49,7 @@ export default {
     }
   },
   components: {
-    List
+    // List
   }
 }
 </script>
