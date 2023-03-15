@@ -2,8 +2,14 @@
   <section>
     
     <!-- 1) 데이터 바인딩 details.vue로 보내려고, 2.props 전송 -->
-    <Details @closeModal="모달창열림 = false" :상품="상품" :제목누른거="제목누른거" :모달창열림="모달창열림"></Details>
+    <!-- 여기 모달창 -->
+    <!-- <div class="start" :class="{end :모달창열림}">
+      <Details @closeModal="모달창열림 = false" :상품="상품" :제목누른거="제목누른거" :모달창열림="모달창열림"></Details>
+    </div> -->
 
+    <transition name="fade">
+      <Details @closeModal="모달창열림 = false" :상품="상품" :제목누른거="제목누른거" :모달창열림="모달창열림"></Details>
+    </transition>
     <!-- 메뉴 -->
     <nav class="menu">
       <!-- <a v-for="메뉴바 in 메뉴들" :key="메뉴바">{{ 메뉴바 }}</a> -->
@@ -96,6 +102,29 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+
+/* 모달창 트랜지션 */
+.fade-enter-from{
+  /* 애니메이션 동작 실행 전 */
+  transform: translateY(-1000px);
+}
+.fade-enter-active{
+  /* 애니메이션 동작 실행 중 */
+  transition: all .5s;
+}
+.fade-enter-to{
+  /* 애니메이션 동작 실행 후 */
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* 모달창 퇴장 */
+.fade-leave-from{opacity: 1;}
+.fade-leave-active{transition: all .5s;}
+.fade-leave-to{opacity: 0;}
+
+
 nav.menu{ background: #2c3e50;
 border-radius: 10px; padding: 15px 0;}
 nav.menu a{color: #fff; text-decoration: none;
@@ -106,4 +135,18 @@ button.btn:hover{background: #fff; border: 1px solid crimson; color: #000;}
 button.btn:active{transform: scale(75%); background: palevioletred;}
 
 h4{cursor: pointer; width: 100px; margin: auto; border: 1px dashed crimson;}
+
+/* 모달창 css */
+body{margin: 0; padding: 0;}
+div{box-sizing: border-box;}
+.black-bg{background: rgba(0, 0, 0, 0.5); position: fixed; width: 100%; height: 100%; border-radius: 8px; padding: 20px;}
+.white-bg{background: #fff;  width: 100%; border-radius: 8px; padding: 20px;}
+
+.start{
+  opacity: 0; transition: all 0.5s;
+}
+
+.end{
+  opacity: 1;
+}
 </style>

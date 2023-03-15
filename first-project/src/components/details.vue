@@ -11,7 +11,7 @@
            <input v-model.number="priceNumber">
            <p>{{priceNumber}} 개 선택 :{{상품[제목누른거].price * priceNumber}}원</p>
            <!-- read only기능 -->
-          <button @click ="$emit('closeModal')">닫기버튼</button>      </div>
+          <button class="btn" @click ="$emit('closeModal')">닫기버튼</button>      </div>
     </div>
 </template>
 
@@ -51,9 +51,5 @@ export default{
 </script>
 
 <style>
-/* 모달창 css */
-body{margin: 0; padding: 0;}
-div{box-sizing: border-box;}
-.black-bg{background: rgba(0, 0, 0, 0.5); position: fixed; width: 100%; height: 100%; border-radius: 8px; padding: 20px;}
-.white-bg{background: #fff;  width: 100%; border-radius: 8px; padding: 20px}
+
 </style>
