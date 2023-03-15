@@ -1,15 +1,15 @@
 <template>
-  <section>
+  <section :style="{border: '0.5px solid black'}">
     <div class="post">
       <div class="post-header">
         <div class="profile"></div>
-        <span class="profile-name"> morphine </span>
+        <span class="profile-name"> {{ 게시물[0].name }} </span>
       </div>
-      <div class="post-body">
-      </div>
+      <!-- '문자' + 변수 + '문자' = `문자 ${변수} 문자` -->
+      <!-- <div class="post-body" :style="{backgroundImage: `url(${게시물[0].postImage})`}"></div> -->
       <div class="post-content">
         <p>100 Likes</p>
-        <p><strong>morphine</strong> 그리운 연진에게. </p>
+        <p><strong>유저이름</strong> 그리운 연진에게. </p>
         <p class="date">March 15. 2023.</p>
       </div>
     </div>
@@ -17,8 +17,17 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  name: 'post',
+  /* data(){
+    return{
+
+    }
+  }, */
+  props: {
+    게시물: Object,
+  }
 }
 </script>
 

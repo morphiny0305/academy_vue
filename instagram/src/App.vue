@@ -27,13 +27,14 @@
 
 <script>
 import Container from './components/Container.vue'
+import postData from './assets/instaData.js'
 
 
 export default {
   name: 'App',
   data(){
     return {
-
+      게시물 : postData,
     }
   },
   components: {
