@@ -1,16 +1,16 @@
 <template>
-  <section :style="{border: '0.5px solid black'}">
+  <section>
     <div class="post">
       <div class="post-header">
-        <div class="profile"></div>
-        <span class="profile-name"> {{ 게시물[0].name }} </span>
+        <div class="profile" :style="{backgroundImage: `url(${게시물.userImage})`}"></div>
+        <span class="profile-name"> {{ 게시물.name }} </span>
       </div>
       <!-- '문자' + 변수 + '문자' = `문자 ${변수} 문자` -->
-      <!-- <div class="post-body" :style="{backgroundImage: `url(${게시물[0].postImage})`}"></div> -->
+      <div class="post-body" :style="{backgroundImage: `url(${게시물.postImage})`}"></div>
       <div class="post-content">
-        <p>100 Likes</p>
-        <p><strong>유저이름</strong> 그리운 연진에게. </p>
-        <p class="date">March 15. 2023.</p>
+        <p>{{ 게시물.likes }} Likes</p>
+        <p><strong>{{ 게시물.name }}</strong> {{ 게시물.content }} </p>
+        <p class="date">{{ 게시물.date }}</p>
       </div>
     </div>
   </section>
@@ -58,7 +58,7 @@ export default {
 .post-body {
   background-image: url("https://placeimg.com/640/480/animals");
   height: 450px;
-  background-position: center;
+  background-position: top center;
   background-size: cover;
 }
 .post-content {
