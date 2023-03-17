@@ -6,7 +6,7 @@
     <!-- 게시물 작성 > 필터 선택 -->
     <div v-if="step == 1">
       <!-- 업로드한 이미지 -->
-      <div class="upload-image" :style="{backgroundImage: `url(${이미지})`}"></div>
+      <div class="upload-image" :style="{background: `url(${이미지}) center no-repeat`, backgroundSize: `contain`}"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
