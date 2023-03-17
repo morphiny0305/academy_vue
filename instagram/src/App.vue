@@ -2,7 +2,7 @@
   <section>
     <div class="header">
       <ul class="header-button-left">
-        <li>Cancel</li>
+        <li @click="step=0">Cancel</li>
       </ul>
       <ul class="header-button-right">
         <li @click="step++">Next</li>
@@ -17,9 +17,9 @@
 
 
     <div class="footer">
-      <ul class="footer-button-plus">
+      <ul class="footer-button-plus" v-if="step == 0">
         <!-- <input type="file" id="file" class="inputfile" /> -->
-        <input @change="upload" type="file" id="file">
+        <input  @change="upload" type="file" id="file" class="inputfile" />
         <label for="file" class="input-plus">+</label>
       </ul>
     </div>
@@ -74,8 +74,8 @@ export default {
       // 이미지 업로드 함수
       let file = e.target.files;
       console.log(file[0].type);
-      let url = URL.createObjectURL(file[0]);
-      console.log(url);
+      this.이미지 = URL.createObjectURL(file[0]);
+      console.log(this.이미지);
       this.step++;
     }
   }

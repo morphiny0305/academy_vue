@@ -18,7 +18,7 @@
 
     <!-- 게시물 작성 > 내용 작성 -->
     <div v-if="step == 2">
-      <div class="upload-image"></div>
+      <div class="upload-image" :style="`background-image: url(${이미지})`"></div>
       <div class="write">
         <textarea class="white-box">text here.</textarea>
       </div>
