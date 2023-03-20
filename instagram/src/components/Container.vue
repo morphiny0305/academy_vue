@@ -1,18 +1,24 @@
 <template>
   <section>
     <div v-if="step == 0">
-      <Post :게시물="게시물[i]" v-for="(a, i) in 게시물" :key="i"/>
+      <Post :게시물="게시물[i]" v-for="(a, i) in 게시물" :key="i">
+        <template v-slot:a>시발</template>
+        <template v-slot:b>ttgas;l</template>
+      </Post>
     </div>
     <!-- 게시물 작성 > 필터 선택 -->
     <div v-if="step == 1">
       <!-- 업로드한 이미지 -->
       <div class="upload-image" :style="`background-image: url(${이미지})`"></div>
       <div class="filters">
-        <div class="filter-1"></div>
-        <div class="filter-1"></div>
-        <div class="filter-1"></div>
-        <div class="filter-1"></div>
-        <div class="filter-1"></div>
+        <!-- 필터박스 가져오기 -->
+        <FilterBox class="filter-1" v-for="filter in 필터들" :key="filter" :이미지="이미지" :filter="filter">
+          {{filter}}
+          <!-- 태그 안에만 바인딩할 때 props 대신 사용하는 slot 문법 -->
+          
+        </FilterBox>
+        
+        <!-- {{ filter }} -->
       </div>
     </div>
 
@@ -28,15 +34,20 @@
 </template>
 
 <script>
-import Post from './Post.vue'
+import Post from './Post.vue';
+import FilterBox from './FilterBox.vue';
 export default {
   name: 'container',
   data(){
     return {
+      필터들 : [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
+"inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
+"reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"] ,
     }
   },
   components: {
-    Post
+    Post,
+    FilterBox,
   },
   props: {
     게시물: Object,

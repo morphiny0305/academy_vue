@@ -3,7 +3,12 @@
     <div class="post">
       <div class="post-header">
         <div class="profile" :style="{backgroundImage: `url(${게시물.userImage})`}"></div>
-        <span class="profile-name"> {{ 게시물.name }} </span>
+        <span class="profile-name">
+           <slot></slot>
+            <slot name="a"></slot>
+            <slot name="b"></slot>
+           </span>
+        <!-- <span class="profile-name"> {{ 게시물.name }} </span> -->
       </div>
       <!-- '문자' + 변수 + '문자' = `문자 ${변수} 문자` -->
       <div class="post-body" :style="{backgroundImage: `url(${게시물.postImage})`}"></div>
