@@ -5,14 +5,15 @@
         <li @click="step=0">Cancel</li>
       </ul>
       <ul class="header-button-right">
-        <li @click="step++">Next</li>
+        <li v-if="step == 1" @click="step++">Next</li>
+        <li v-if="step == 2" @click="publish()">작성왕료.</li>
       </ul>
       <img src="./assets/logo.png" class="logo" />
     </div>
 
 
-
-    <Container :step="step" :이미지="이미지" :게시물="게시물"/>
+<!-- 커스텀 이벤트 수신코드 @이름 -->
+    <Container @write="작성한글 = $event" :step="step" :이미지="이미지" :게시물="게시물"/>
     <button v-if="step == 0" @click="more" class="more-btn">더보기</button>
 
 
@@ -47,8 +48,9 @@ export default {
     return {
       더보기 : 0,
       게시물 : postData,
-      step:0, // 상태 기록
       이미지 : '', // 업로드한 이미지 빈 주소 (스트링)
+      step:0, // 상태 기록
+      작성한글:'',
     }
   },
   components: {
@@ -73,11 +75,28 @@ export default {
     upload(e){
       // 이미지 업로드 함수
       let file = e.target.files;
-      console.log(file[0].type);
-      this.이미지 = URL.createObjectURL(file[0]);
+      // console.log(file[0].type);
+      let url = URL.createObjectURL(file[0]);// 가상의 URL 생성 저장
+      this.이미지 = url; // 이미지 정보 데이터 전송 -> Container
       console.log(this.이미지);
       this.step++;
+    },
+
+    publish(){
+      let 내게시물 = {
+    name : '김멍멍',
+    userImage: "https://cdn-icons-png.flaticon.com/512/2437/2437643.png",
+    postImage: this.이미지,
+    likes: 111,
+    date: new Date().toLocaleDateString(),
+    liked: false,
+    content: this.작성한글,
+    filter: "perpetua"
+      };
+      this.게시물.unshift(내게시물);
+      this.step = 0;
     }
+    
   }
 }
 </script>

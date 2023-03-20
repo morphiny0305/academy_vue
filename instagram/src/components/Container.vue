@@ -6,7 +6,7 @@
     <!-- 게시물 작성 > 필터 선택 -->
     <div v-if="step == 1">
       <!-- 업로드한 이미지 -->
-      <div class="upload-image" :style="{background: `url(${이미지}) center no-repeat`, backgroundSize: `contain`}"></div>
+      <div class="upload-image" :style="`background-image: url(${이미지})`"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
@@ -20,7 +20,8 @@
     <div v-if="step == 2">
       <div class="upload-image" :style="`background-image: url(${이미지})`"></div>
       <div class="write">
-        <textarea class="white-box">text here.</textarea>
+        <!-- 부모에게 글 value 보내기 -->
+        <textarea class="white-box" @input="$emit('write', $event.target.value)"> </textarea>
       </div>
     </div>
   </section>
@@ -32,7 +33,6 @@ export default {
   name: 'container',
   data(){
     return {
-      
     }
   },
   components: {
@@ -43,7 +43,6 @@ export default {
     step: Number,
     이미지: String,
   }
-  
 }
 </script>
 
@@ -52,7 +51,8 @@ export default {
 width: 100%;
 height: 450px;
 background: cornflowerblue;
-background-size : cover;
+/* background-size : cover; */
+background-size : 100% 100%;
 }
 .filters{
 overflow-x:scroll;
