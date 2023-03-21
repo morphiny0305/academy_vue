@@ -51,10 +51,17 @@ export default {
       이미지 : '', // 업로드한 이미지 빈 주소 (스트링)
       step:0, // 상태 기록
       작성한글:'',
+      선택필터:'',
     }
   },
   components: {
     Container
+  },
+  mounted(){
+    this.emitter.on('imageBoxClick', (a)=>{
+      // console.log('선택한필터는' + a);
+      this.선택필터 = a;
+    })
   },
   methods:{
     more(){
@@ -87,11 +94,11 @@ export default {
     name : '김멍멍',
     userImage: "https://cdn-icons-png.flaticon.com/512/2437/2437643.png",
     postImage: this.이미지,
-    likes: 111,
+    likes: 777777,
     date: new Date().toLocaleDateString(),
     liked: false,
     content: this.작성한글,
-    filter: "perpetua"
+    filter: this.선택필터
       };
       this.게시물.unshift(내게시물);
       this.step = 0;
