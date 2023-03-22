@@ -11,6 +11,22 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
+    <!-- <h1>vuex {{ $store.state.name }} 스타그램</h1> -->
+    <!-- <h1>vuex {{ $store.state.age }} 세..</h1> -->
+    <!-- <button @click="$store.commit('이름바꾸기')">vuex 버튼</button> -->
+    <button @click="나이더하기(10)">vuex 버튼</button>
+    <!-- <button @click="$store.commit('나이더하기', 10)">나이 버튼</button> -->
+    <button @click="$store.commit('나이더하기', 10)">나이 버튼</button>
+      <h1>methods - 시간 : {{ now() }}</h1>
+      <h1>computed - 시간 : {{ now2 }}</h1>
+      <h1>computed - 이름 : {{ name }}</h1>
+      <p>{{ 카운터 }}</p>
+      <button @click="카운터++">더하기더하기</button>
+    <button @click="$store.dispatch('getData')">디스패치</button>
+
+    <h3>{{ name }}  {{ 내이름 }}</h3>
+    <h3>{{ likes }}</h3>
+    <h3>{{ age }}</h3>
 <!-- 커스텀 이벤트 수신코드 @이름 -->
     <Container @write="작성한글 = $event" :step="step" :이미지="이미지" :게시물="게시물"/>
     <button v-if="step == 0" @click="more" class="more-btn">더보기</button>
@@ -18,11 +34,21 @@
 
     <div class="footer">
       <ul class="footer-button-plus" v-if="step == 0">
+        <!-- <input type="file" id="file" class="inputfile" /> -->
         <input @change="upload" type="file" id="file" class="inputfile" />
         <label for="file" class="input-plus">+</label>
       </ul>
     </div>
 
+    <!-- 탭메뉴 연습 -->
+    <!-- <div v-if="step == 0">내용1</div>
+    <div v-if="step == 1">내용2</div>
+    <div v-if="step == 2">내용3</div>
+    <button @click="step = 0">버튼1</button>
+    <button @click="step = 1">버튼2</button>
+    <button @click="step = 2">버튼3</button> -->
+
+    <!-- <div style="margin-top: 300px;"></div> -->
   </section>
 </template>
 

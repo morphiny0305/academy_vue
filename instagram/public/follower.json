@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "name": "L000",
+    "image": "https://img.hankyung.com/photo/202207/BF.30710089.1.jpg"
+  },
+  {
+    "id": 1,
+    "name": "L111",
+    "image": "https://images.chosun.com/resizer/iw2YcsZC7mRaTAp6oBIrI7fEspM=/530x763/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/7VCDO3GVXA25WCMXTPEFRH4WSE.jpg"
+  },
+  {
+    "id": 2,
+    "name": "L222",
+    "image": "https://cdn.gynews.kr/news/photo/202302/22738_46504_2212.jpg"
+  },
+  {
+    "id": 3,
+    "name": "L333",
+    "image": "https://img.mbn.co.kr/filewww/news/other/2022/04/05/022442425442.jpg"
+  },
+  {
+    "id": 4,
+    "name": "L444",
+    "image": "https://cdn.entermedia.co.kr/news/photo/202204/28765_54468_4131.jpg"
+  }
+]

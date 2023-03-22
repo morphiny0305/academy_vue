@@ -30,10 +30,16 @@
         <textarea class="white-box" @input="$emit('write', $event.target.value)"> </textarea>
       </div>
     </div>
+
+    <!-- 팔로워페이지 만들기 -->
+    <div v-if="step == 3">
+      <mypage />
+    </div>
   </section>
 </template>
 
 <script>
+import mypage from './myPage.vue'
 import Post from './Post.vue';
 import FilterBox from './FilterBox.vue';
 export default {
@@ -49,6 +55,7 @@ export default {
   components: {
     Post,
     FilterBox,
+    mypage,
   },
   props: {
     게시물: Object,
