@@ -11,10 +11,14 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <h1>vuex {{ $store.state.name }} 스타그램</h1>
+    <!-- <h1>vuex {{ $store.state.name }} 스타그램</h1>
     <h1>vuex {{ $store.state.age }} 세..</h1>
     <button @click="$store.commit('이름바꾸기')">vuex 버튼</button>
-    <button @click="$store.commit('나이더하기', 10)">나이 버튼</button>
+    <button @click="$store.commit('나이더하기', 10)">나이 버튼</button> -->
+      <h1>methods - 시간 : {{ now() }}</h1>
+      <h1>computed - 시간 : {{ now2 }}</h1>
+      <h1>computed - 이름 : {{ name }}</h1>
+    <button @click="$store.dispatch('getData')">디스패치</button>
 
 <!-- 커스텀 이벤트 수신코드 @이름 -->
     <Container @write="작성한글 = $event" :step="step" :이미지="이미지" :게시물="게시물"/>
@@ -67,7 +71,18 @@ export default {
       this.선택필터 = a;
     })
   },
+  computed:{
+    now2(){ // 계산 결과를 저장하는 공간
+      return new Date().toLocaleDateString();
+    },
+    name(){
+      return this.$store.state.name;
+    }
+  },
   methods:{
+    now(){
+      return new Date().toLocaleDateString();
+    },
     more(){
       /* axios.post('url',{name: "kim"}).then().catch(()=>{}) */
 
