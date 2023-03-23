@@ -1,7 +1,7 @@
 <template>
   <div style="padding : 10px">
-    <h4>팔로워 {{ 결과 }}</h4>
-    <input placeholder="찾기" />
+    <h4>팔로워 {{ 결과 }} {{ hello() }}</h4>
+    <input placeholder="찾기" @input="search($event.target.value)" />
     <div class="post-header" v-for="(a, i) in follower" :key="i">
       <div class="profile" :style="`background-image: url(${a.image}) `"></div>
       <span class="profile-name"> {{ a.name }} </span>
@@ -21,13 +21,14 @@ export default {
   name: 'myPage',
   setup(props){ // 데이터 생성, 조작 methods, computed, watch, hook
     let follower = ref([]);
+    let followerOriginal = ref([]);
       // 데이터 생성 함수 _ ref(실시간 재 랜더링)
     
 
     let {one} = toRefs(props); // es6 distructure 문법
     let {two} = toRefs(props); // es6 distructure 문법
 
-    let 결과 = computed(()=>{return follower.value.length});
+    let 결과 = computed(()=>{return followerOriginal.value.length});
     console.log(결과.value);
     console.log(one.value);
     console.log(two.value);
@@ -39,14 +40,27 @@ export default {
     onMounted(()=>{
       axios.get('https://morphiny0305.github.io/testPAGE/vue/follower.json').then((a)=>{
       follower.value = a.data;
+      followerOriginal.value = [...a.data];
       console.log(a.data)
     }).catch(()=>{
       alert('데이터 ㄴㄴ')
     })
     })
     
+    function hello(){
+      return new Date().toLocaleTimeString();
+    }
+    
+    function search(검색어){ // 해당하는 글자찾기
+      let newFollower = follower.value.filter((a)=>{
+        return a.name.indexOf(검색어) != -1
+        // -1 값은 어떤 값을 발견하지 못했다는 것
+      });
+      follower.value = [...newFollower]; // 배열이 새로 구성될 경우 안전한 지 체크
+    }
 
-    return {follower, 결과}
+
+    return {follower, 결과, hello, search}
   }, // setup() 의 끝
 
   data(){
@@ -65,6 +79,7 @@ export default {
 </script>
 
 
-<style>
-
+<style scoped>
+  div{line-height: 1.8; text-align: center}
+  div.post-header{margin: 5px 0;}
 </style>
