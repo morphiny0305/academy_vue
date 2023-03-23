@@ -52,7 +52,7 @@ export default {
     }
     
     function search(검색어){ // 해당하는 글자찾기
-      let newFollower = follower.value.filter((a)=>{
+      let newFollower = followerOriginal.value.filter((a)=>{
         return a.name.indexOf(검색어) != -1
         // -1 값은 어떤 값을 발견하지 못했다는 것
       });
