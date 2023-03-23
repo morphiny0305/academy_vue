@@ -55,7 +55,7 @@ export default {
       this.선택필터 = a;
     })
   },
-  computed:{
+  computed:{ // 반드시 리턴 값 사용
     now2(){ // 계산 결과를 저장하는 공간
       return new Date().toLocaleTimeString();
     },
@@ -73,6 +73,8 @@ export default {
       return this.$store.state.age;
     },
     ...mapMutations(['나이더하기', 'likeIt', '이름변경']),
+    // mapState -> computed
+    // mapMutations -> methods에 사용
     more(){
       /* axios.post('url',{name: "kim"}).then().catch(()=>{}) */
 
