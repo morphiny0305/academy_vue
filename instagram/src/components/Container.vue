@@ -33,7 +33,7 @@
 
     <!-- 팔로워페이지 만들기 -->
     <div v-if="step == 3">
-      <mypage />
+      <mypage :one="1" :two="100"></mypage>
     </div>
   </section>
 </template>
